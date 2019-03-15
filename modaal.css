@@ -1,0 +1,37 @@
+body{
+	font-family: Helvetica Neue, sans-serif;
+	position: relative;
+	margin: 0;
+}
+
+.wrapper{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	grid-gap: 1em;
+	padding: 1.2em;
+	justify-items: center;
+}
+
+/*h1 zo breed als het maar kan, behalve 2 grid-cellen voor login en register*/
+
+h1 {
+	grid-column: 1/-3;
+}
+
+/*De afbeeldingen van de modaalKnoppen verkleinen*/
+img.modaal-knop{
+	max-width: 150px;
+}
+
+/*Het album opmaken */ 
+
+.album{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 80vw;
+	grid-gap: 1.5em;
+}
+
+.grid img {
+	max-width:100%;
+}
