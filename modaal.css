@@ -6,26 +6,51 @@ body{
 
 .wrapper{
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	grid-gap: 1em;
 	padding: 1.2em;
 	justify-items: center;
 }
 
-/*h1 zo breed als het maar kan, behalve 2 grid-cellen voor login en register*/
+/*De modaalContent in de wrapper bij voorbaat verbergen*/
 
-h1 {
+.wrapper .modaalContent{
+	display: none;
+}
+
+/*h1 zo breed als het maar kan, behalve 2 grid cellen voor login en geristreer*/
+
+h1{
 	grid-column: 1/-3;
 }
 
-/*De afbeeldingen van de modaalKnoppen verkleinen*/
-img.modaal-knop{
+img, form{
+	box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+}
+
+/*De afb van de modale knoppen wat verkleinen*/
+
+img.modaalKnop{
 	max-width: 150px;
+	transition: transform .3s ease-out, box-shadow .4s ease-out;
+}
+
+img.modaalKnop:hover{
+	transform: scale(1.1);
+	box-shadow: .5em .5em 2em rgba(0, 0, 0, .7);
+}
+
+.modaalKnop{
+	cursor: pointer;
+}
+
+.modaalKnop:hover{
+	color: red;
 }
 
 /*Het album opmaken */ 
 
-.album{
+.cd{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	max-width: 80vw;
@@ -34,4 +59,59 @@ img.modaal-knop{
 
 .grid img {
 	max-width:100%;
+}
+
+/*Het modaal venster opmaken*/
+
+.modaal-achtergrond{
+ 	position: fixed;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100vw;
+ 	height: 100vh;
+ 	background-color: rgba(0, 0, 0, 0.5);
+ 	display: grid;
+ 	justify-items: center;
+ 	align-items: center;
+}
+
+.modaal {
+	max-width: 80%;
+	padding: 2em;
+	border-radius: 1em;
+	background-color: #fff;
+	max-height: 100vh;
+	overflow-y: auto;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	grid-row-gap: 1em;
+	animation: opkomen 1s ease-in-out forwards;
+}
+
+@keyframes opkomen{
+	0% 		{transform: scale(0)}
+	20% 	{transform: scale(1.2)}
+	30% 	{transform: scale(.9)}
+	40% 	{transform: scale(1.05)}
+	50% 	{transform: scale(.975)}
+	60% 	{transform: scale(1.012)}
+	70% 	{transform: scale(.995)}
+	80% 	{transform: scale(1.006)}
+	90% 	{transform: scale(.9997)}
+	100% 	{transform: scale(1)}
+}
+
+/*sluitknop stylen*/
+.sluitknop{
+width: 2em;
+justify-self: end;
+font-size: 2em;
+font-weight: 900;
+transform: translateX(.5em);
+border: 0;
+}
+
+.sluitknop:hover{
+	color: red;
+	cursor: pointer;
 }
