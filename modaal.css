@@ -12,9 +12,9 @@ body{
 	justify-items: center;
 }
 
-/*De modaalContent in de wrapper bij voorbaat verbergen*/
+/*De content in de wrapper bij voorbaat verbergen*/
 
-.wrapper .modaalContent{
+.wrapper .content{
 	display: none;
 }
 
@@ -30,21 +30,21 @@ img, form{
 
 /*De afb van de modale knoppen wat verkleinen*/
 
-img.modaalKnop{
+img.button{
 	max-width: 150px;
 	transition: transform .3s ease-out, box-shadow .4s ease-out;
 }
 
-img.modaalKnop:hover{
+img.button:hover{
 	transform: scale(1.1);
 	box-shadow: .5em .5em 2em rgba(0, 0, 0, .7);
 }
 
-.modaalKnop{
+.button{
 	cursor: pointer;
 }
 
-.modaalKnop:hover{
+.button:hover{
 	color: red;
 }
 
@@ -63,7 +63,7 @@ img.modaalKnop:hover{
 
 /*Het modaal venster opmaken*/
 
-.modaal-achtergrond{
+.modaalBackground{
  	position: fixed;
  	top: 0;
  	left: 0;
@@ -101,8 +101,8 @@ img.modaalKnop:hover{
 	100% 	{transform: scale(1)}
 }
 
-/*sluitknop stylen*/
-.sluitknop{
+/*closeButton stylen*/
+.closeButton{
 width: 2em;
 justify-self: end;
 font-size: 2em;
@@ -111,7 +111,7 @@ transform: translateX(.5em);
 border: 0;
 }
 
-.sluitknop:hover{
+.closeButton:hover{
 	color: red;
 	cursor: pointer;
 }
