@@ -1,53 +1,53 @@
 // variabele die alle content van de modale vensters heeft
-const modaalContent = document.querySelectorAll('.modaalContent');
+const content = document.querySelectorAll('.content');
 
 
 
 // Alle modaal content verwijderen uit het DOM
-for (let i = 0; i < modaalContent.length; i++) {
-	let modaalNode = modaalContent[i];
+for (let i = 0; i < content.length; i++) {
+	let modaalNode = content[i];
 	modaalNode.parentNode.removeChild(modaalNode);
 }
 
 //nodelist van alle modale knoppen die inhoud moeten oproepen
-const modaalKnoppen = document.querySelectorAll('.modaalKnop');
-const modaalKnoppenArray = [];
+const modaalButtons = document.querySelectorAll('.button');
+const modaalButtonsArray = [];
 // toekomstige node-elementen aanmaken in variabelen
 
-let modaalAchtergrond		= document.createElement('div');
-modaalAchtergrond.className = 'modaal-achtergrond';
+let background		= document.createElement('div');
+background.className = 'modaalBackground';
 let modaal					= document.createElement('div');
 modaal.className 			= 'modaal';
-let sluitknop				= document.createElement('button');
-sluitknop.className			= 'sluitknop';
-sluitknop.innerHTML			= '&#x00D7;';
+let closeButton				= document.createElement('closeButton');
+closeButton.className			= 'closeButton';
+closeButton.innerHTML			= '&#x00D7;';
 
 // Modale content aan DOM toevoegen
 
 const voegInhoudToe = (event) => {
-	const teller = modaalKnoppenArray.indexOf(event.target);
+	const teller = modaalButtonsArray.indexOf(event.target);
 	console.log(teller);
-	modaal.appendChild(sluitknop);
-	modaal.appendChild(modaalContent[teller]);
-	modaalAchtergrond.appendChild(modaal);
-	document.body.appendChild(modaalAchtergrond);
+	modaal.appendChild(closeButton);
+	modaal.appendChild(content[teller]);
+	background.appendChild(modaal);
+	document.body.appendChild(background);
 }
 
 //sluit het modale venster(Uit het DOM halen)
 const sluitModaal = () => {
 	modaal.innerHTML = '';
-	modaalAchtergrond.innerHTML = '';
-	document.body.removeChild(modaalAchtergrond);
+	background.innerHTML = '';
+	document.body.removeChild(background);
 }
 
-//Sluitknop event sluiten geven
-sluitknop.addEventListener('click', sluitModaal);
+//closeButton event sluiten geven
+closeButton.addEventListener('click', sluitModaal);
 
-// Alle modaalknoppen in een array plaatsen en eventlistener toevoegen
+// Alle modaalButtons in een array plaatsen en eventlistener toevoegen
 
-for(let i=0; i < modaalKnoppen .length; i++) {
+for(let i=0; i < modaalButtons .length; i++) {
 	//toevoegen aan de array
-	modaalKnoppenArray.push(modaalKnoppen[i]);
+	modaalButtonsArray.push(modaalButtons[i]);
 //Klik-event toevoegen
-modaalKnoppen[i].addEventListener('click', voegInhoudToe);
+modaalButtons[i].addEventListener('click', voegInhoudToe);
 }
